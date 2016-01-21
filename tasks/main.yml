@@ -1,0 +1,15 @@
+---
+# tasks file for ansible-kafka
+
+- name: Launch kafka
+  docker:
+    image: xpatterns/kafka:{{ kafka_version }}
+    name: zookeeper
+    command: /usr/bin/run.sh {{ docker_command }}
+    hostname: "zookeeper"
+    ports:
+      - "5181:5181"
+    volumes:
+      - "{{ data_dir }}/kafka:/tmp/kafka-logs"
+    restart_policy: always
+    state: started

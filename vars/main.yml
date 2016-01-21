@@ -1,0 +1,6 @@
+---
+# vars file for ansible-kafka
+
+kafka_version: latest
+docker_command: run
+data_dir: /data
