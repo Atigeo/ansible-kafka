@@ -4,12 +4,12 @@
 - name: Launch kafka
   docker:
     image: xpatterns/kafka:{{ kafka_version }}
-    name: zookeeper
+    name: kafka
     command: /usr/bin/run.sh {{ docker_command }}
-    hostname: "zookeeper"
-    ports:
-      - "5181:5181"
+    net: host
     volumes:
       - "{{ data_dir }}/kafka:/tmp/kafka-logs"
     restart_policy: always
     state: started
+    env:
+      ZOOKEEPERHOST: "{{ zookeeper_host }}"
