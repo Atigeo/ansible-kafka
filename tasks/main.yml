@@ -5,8 +5,11 @@
   docker:
     image: xpatterns/kafka:{{ kafka_version }}
     name: kafka
-    command: /usr/bin/run.sh {{ docker_command }}
+    command: /usr/bin/run.sh
     net: host
+#    hostname: kafka
+#    ports: 
+#      - "9092:9092"
     volumes:
       - "{{ data_dir }}/kafka:/tmp/kafka-logs"
     restart_policy: always

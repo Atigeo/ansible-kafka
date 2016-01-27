@@ -2,6 +2,5 @@
 # vars file for ansible-kafka
 
 kafka_version: latest
-docker_command: init
 data_dir: /data
 zookeeper_host: localhost
